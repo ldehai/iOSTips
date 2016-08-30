@@ -3,6 +3,13 @@
 #author:ldehai@gmail.com
 #github:https://github.com/ldehai/iOSTips/packapp.sh
 
+#脚本说明
+#使用xcodebuild在命令行下编译打包app，最后输出ipa文件
+
+#使用说明
+#命令行下执行chmod +x packapp.sh,设置为可运行。将脚本里面的app路径修改为你项目的实际路径，配置好签名和证书就可以用了。
+#运行方式：./packapp.sh
+
 #1 设置各项根目录
 PROJ_PATH="/Users/andy/myapp"
 INFO_PATH="/Users/andy/myapp/myapp/Info.plist"
