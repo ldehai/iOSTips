@@ -25,6 +25,7 @@ appversion=1.0
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion '${appversion}'" $INFO_PATH
 
 #4 编译app(指定项目实际的"CODE_SIGN_IDENTITY"和"PROVISIONING_PROFILE")
+#  注意"PROVISIONING_PROFILE"要使用证书的uuid，不能直接用名字
 echo "building..."
       xcodebuild
 			-workspace Chanel.xcworkspace   #指定workspace
@@ -38,5 +39,8 @@ echo "building..."
 appfile=$BUILD_PATH/myapp.app
 ipafile=$APP_PATH/myapp.ipa
 
+#删除上次输出的ipa文件
 rm -r $APP_PATH/myapp.ipa
+
+#将编译生成的app打包成ipa文件，其实就是一个zip文件
 /usr/bin/xcrun -sdk iphoneos PackageApplication -v $appfile -o $ipafile
