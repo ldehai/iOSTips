@@ -10,7 +10,7 @@
 #命令行下执行chmod +x packapp.sh,设置为可运行。将脚本里面的app路径修改为你项目的实际路径，配置好签名和证书就可以用了。
 #运行方式：./packapp.sh
 
-#1 设置各项根目录
+#1 设置各项根目录(修改为项目实际路径)
 PROJ_PATH="/Users/andy/myapp"
 INFO_PATH="/Users/andy/myapp/myapp/Info.plist"
 BUILD_PATH="/Users/andy/release/build"
@@ -24,7 +24,7 @@ appversion=1.0
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString '${appversion}'" $INFO_PATH
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion '${appversion}'" $INFO_PATH
 
-#4 编译app
+#4 编译app(指定项目实际的"CODE_SIGN_IDENTITY"和"PROVISIONING_PROFILE")
 echo "building..."
       xcodebuild
 			-workspace Chanel.xcworkspace   #指定workspace
@@ -38,5 +38,5 @@ echo "building..."
 appfile=$BUILD_PATH/myapp.app
 ipafile=$APP_PATH/myapp.ipa
 
-rm -r $APP_PATH/channel.ipa
+rm -r $APP_PATH/myapp.ipa
 /usr/bin/xcrun -sdk iphoneos PackageApplication -v $appfile -o $ipafile
