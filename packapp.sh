@@ -28,8 +28,8 @@ appversion=1.0
 #  注意"PROVISIONING_PROFILE"要使用证书的uuid，不能直接用名字
 echo "building..."
 	xcodebuild \
-	-workspace Chanel.xcworkspace \  #指定workspace
-	-scheme Chanel \                 #指定schema
+	-workspace myapp.xcworkspace \  #指定workspace
+	-scheme myapp \                 #指定schema
 	VALID_ARCHS="arm64 armv7 armv7s" \   #指定archs
 	DEBUG_INFORMATION_FORMAT="dwarf-with-dsym" \ #指定携带调试符号信息文件(与app同名的.dsym文件)，崩溃时可以打印堆栈信息
 	-configuration Debug clean build CONFIGURATION_BUILD_DIR=$BUILD_PATH \ #自定义编译输出路径
